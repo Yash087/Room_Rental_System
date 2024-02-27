@@ -1,0 +1,34 @@
+package com.example.service;
+
+import java.util.List;
+import java.util.stream.Collectors;
+
+import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.example.dto.TenantDto;
+import com.example.entity.Tenant;
+import com.example.repository.TenantRepository;
+
+@Service
+public class TenantService {
+
+	@Autowired
+	TenantRepository tenantRepo;
+	@Autowired
+	ModelMapper modelMapper;
+	
+	public TenantDto addTenant(TenantDto tenantDto) {
+		Tenant tenant = this.modelMapper.map(tenantDto, Tenant.class);
+		Tenant addTenant = this.tenantRepo.save(tenant);\
+		TenantDto tenantDTO= this.modelMapper.addMappings(addTenant,TenantDto.class);
+		return tenantDTO;
+	}
+	
+	public List<TenantDto> getAllTenant() {
+		List<Tenant> tenants=this.tenantRepo.findAll();
+		List<TenantDto> tenantsDto=tenants.stream().map((tenant)->this.modelMapper.map(tenant,TenantDto.class)).collect(Collectors.toList());
+		return tenantsDto;
+	}
+}

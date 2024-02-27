@@ -1,0 +1,28 @@
+package com.example.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.example.entity.RegisteredUser;
+import com.example.repository.RegisteredUserRepository;
+
+@RestController
+public class RegisteredUserController {
+//	@Autowired
+//	RegisteredUserRepository UserRepo;
+//	@GetMapping("/User")
+//	public List<RegisteredUser> getAllUSer(){
+//		List<RegisteredUser> user= UserRepo.findAll();
+//		return user;
+//	}
+//	@DeleteMapping("/User/Delete/{id}")
+//	public void removeUser(@PathVariable int id) {
+//		RegisteredUser user=UserRepo.findById(id).get();
+//		UserRepo.delete(user);
+	}
+}

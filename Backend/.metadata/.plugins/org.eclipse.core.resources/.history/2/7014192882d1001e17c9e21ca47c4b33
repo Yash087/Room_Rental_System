@@ -1,0 +1,15 @@
+package com.example.repository;
+
+import java.util.Optional;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+
+import com.example.entity.Landlord;
+
+public interface LandlordRepository extends JpaRepository<Landlord,Integer> {
+
+	@Query(value = "Select owner from Landlord owner where owner.email_id = :emailId and owner.password = :password")
+	Optional<Landlord> findByEmailAndPassword(@Param("emailId") String emailId,@Param("password") String password);
+}

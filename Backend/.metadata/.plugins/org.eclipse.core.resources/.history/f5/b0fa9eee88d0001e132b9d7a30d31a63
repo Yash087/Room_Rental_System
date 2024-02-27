@@ -1,0 +1,43 @@
+package com.example.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.example.entity.Tenant;
+import com.example.repository.TenantRepository;
+
+@RestController
+public class TenantController {
+
+	@Autowired
+	TenantRepository tenantRepo;
+	@GetMapping("/Tenant")
+	public List<Tenant> getAllTenant(){
+		List<Tenant> tentat=tenantRepo.findAll();
+		return tentat;
+	}
+	@GetMapping("/Tenant/{id}")
+	public Tenant getTenant(@PathVariable int id) {
+		Tenant tenant=tenantRepo.findById(id).get();
+		return tenant;
+	}
+	@PostMapping("/AddTenant")
+	@ResponseStatus(code=HttpStatus.CREATED)
+	public void addTenant(@RequestBody Tenant tenat) {
+		tenantRepo.save(tenat);
+	}
+	@DeleteMapping("/Tenant/Delete/{id}")
+	public void removeTenant(@PathVariable int id) {
+		Tenant tenant=tenantRepo.findById(id).get();
+		tenantRepo.delete(tenant);
+	}
+}

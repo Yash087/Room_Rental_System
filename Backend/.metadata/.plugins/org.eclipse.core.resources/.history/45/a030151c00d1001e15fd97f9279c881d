@@ -1,0 +1,13 @@
+package com.example.dto;
+
+import javax.persistence.Column;
+
+public class TenantDto {
+
+	private int TenantId;
+	private String FirstName;
+	private String LastName;
+	private String EmailId;
+	private String Password;
+	private String Phone;
+}

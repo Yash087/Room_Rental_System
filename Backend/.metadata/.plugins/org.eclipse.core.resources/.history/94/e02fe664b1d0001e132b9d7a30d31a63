@@ -1,0 +1,19 @@
+package com.example.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.example.dto.UserDto;
+import com.example.entity.Landlord;
+import com.example.repository.LandlordRepository;
+
+@Service
+public class LandlordService {
+
+	@Autowired
+	LandlordRepository landlordRepo;
+	public void addLandlord(UserDto landlordDto) {
+		Landlord landlord=new Landlord(landlordDto.getFirstName(), landlordDto.getLastName(), landlordDto.getEmailId(), landlordDto.getPassword(), landlordDto.getPhone());
+		landlordRepo.save(landlord);
+	}
+}

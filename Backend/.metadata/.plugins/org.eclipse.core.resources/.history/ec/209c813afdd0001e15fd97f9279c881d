@@ -1,0 +1,41 @@
+package com.example.service;
+
+import java.util.List;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
+
+import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.example.dto.LandlordDto;
+import com.example.entity.Landlord;
+import com.example.repository.LandlordRepository;
+
+@Service
+public class LandlordService {
+
+	@Autowired
+	private ModelMapper modelMapper;
+	@Autowired
+	private LandlordRepository landlordRepo;
+
+	public LandlordDto addLandlord(LandlordDto landlordDto) {
+		Landlord landlord = this.modelMapper.map(landlordDto, Landlord.class);
+		Landlord addLandlord = landlordRepo.save(landlord);
+		LandlordDto landlordDTO = this.modelMapper.map(addLandlord, LandlordDto.class);
+		return landlordDTO;
+	}
+	
+	public LandlordDto getLandlordById(int adminID) {
+		Landlord landlord =landlordRepo.findById(adminID).get();	// here add custom exception if Landlord Does not exists with help of orElseThrow
+		return this.modelMapper.map(landlord,LandlordDto.class);
+	}
+	
+	public List<LandlordDto> getAllLandlord(){
+		List<Landlord> landlords= landlordRepo.findAll();
+		List<LandlordDto> landlordsDto=landlords.stream().map((landlord)->this.modelMapper.map(landlord,LandlordDto.class)).collect(Collectors.toList());
+		return landlordsDto;
+	}
+	
+}
