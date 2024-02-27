@@ -1,9 +1,0 @@
-package com.example.dto;
-
-public class UserDto {
-	private String FirstName;
-	private String LastName;
-	private String EmailId;
-	private String Password;
-
-}
