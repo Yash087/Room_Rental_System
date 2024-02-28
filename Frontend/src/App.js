@@ -16,7 +16,7 @@ import Property from './Component/AddProperties';
 function App() {
   return (
     <div className="App">
-      {/* <BrowserRouter>
+      <BrowserRouter>
         <NavigationComponent/>
         <Routes>
           <Route path='' element={<Homepage/>} exact />
@@ -29,8 +29,8 @@ function App() {
           <Route path='/addproperty' element={<Property/>}></Route>
           <Route path='/landlord' element={<Landlord />} />
         </Routes>
-      </BrowserRouter> */}
-      <AddProperties/>
+      </BrowserRouter>
+      {/* <AddProperties/> */}
       {/* <Homepage/> */}
     </div>
   );
