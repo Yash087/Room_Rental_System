@@ -13,6 +13,7 @@ import RegisterLandlord from './Component/UserAuthentication/Signup/RegisterLand
 import OwnerProfile from './Component/OwnerDashboard';
 import AddProperties from './Component/AddProperties';
 import Property from './Component/AddProperties';
+import AvailableRoomList from './Component/AvailableRoomList';
 function App() {
   return (
     <div className="App">
@@ -28,6 +29,7 @@ function App() {
           <Route path='/landlord/dashboard' element={<OwnerProfile/>}></Route>
           <Route path='/addproperty' element={<Property/>}></Route>
           <Route path='/landlord' element={<Landlord />} />
+          <Route path='propertylist' element= {<AvailableRoomList/>} />
         </Routes>
       </BrowserRouter>
       {/* <AddProperties/> */}

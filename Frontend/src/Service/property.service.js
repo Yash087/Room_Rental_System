@@ -7,6 +7,9 @@ const app=axios.create({
     }
 });
 
+const getAllRooms=()=>{ 
+    return app.get('/property/');
+}
 const getcity=()=>{
     return app.get(`/property/city`);
 }
@@ -17,4 +20,4 @@ const ownerproperties =(id)=>{
     return app.post(`/property/owner/${id}`);
 }
 
-export default getarea;
+export default getAllRooms;

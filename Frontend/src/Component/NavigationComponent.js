@@ -20,13 +20,13 @@ const NavigationComponent = () => {
                                     </a></Link>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link" to="/PropertyList" style={{ color: 'indigo' }}> <a className="nav-link" href="#">Property List</a></Link>
+                                <Link className="nav-link" to="/propertylist" style={{ color: 'indigo' }}> <a className="nav-link" href="#">Property List</a></Link>
                             </li>
                             <li className="nav-item">
                                 <Link className="nav-link" to="/register/tenant" style={{ color: 'indigo' }}><a className="nav-link" href="#">Tenant Registration</a></Link>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link" to="/register/landlord" style={{ color: 'indigo' }}>    <a className="nav-link" href="#">Post a PRoperty</a></Link>
+                                <Link className="nav-link" to="/register/landlord" style={{ color: 'indigo' }}>    <a className="nav-link" href="#">Post a Property</a></Link>
                             </li>
                             <li className="nav-item">
                                 <Link className="nav-link" to="/Contactus" style={{ color: 'indigo' }}>     <a className="nav-link" href="#">Contact Us</a></Link>
